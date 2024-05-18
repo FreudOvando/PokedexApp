@@ -13,7 +13,18 @@ const getApi = (url) => {
     .catch(err => console.log(err))
 }
 
-return [response, getApi] 
+const getTypeApi = (url) => {
+    axios.get(url)
+      .then(res => {
+        const obj = {
+          results: res.data.pokemon.map(e => e.pokemon)
+        }
+        setResponse(obj)
+      })
+      .catch(err => console.log(err))
+  }
+
+return [response, getApi, getTypeApi] 
 }
 
 
