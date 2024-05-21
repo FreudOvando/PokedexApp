@@ -31,39 +31,34 @@ const Pokeinfo = () => {
     return <div>Loading...</div>;
   }
 
-  const { id, name: pokemonName, abilities, types, height, weight, stats, sprites } = pokemon;
+  const { id, name: pokemonName, abilities, types, height, weight, stats, sprites, moves } = pokemon;
 
   return (
-      <article className={`text-yellow-500 font-mono w-full max-w-md mx-auto p-4 rounded-2xl aspect-auto relative mb-4  bg-gray-700`}>
-    <div className={`w-full max-w-md mx-auto p-4 rounded-2xl aspect-auto relative mb-4  ${types[0]?.type.name ? getBackgroundClass(types[0].type.name) : 'bg-gray-500'}`}>
-    <img className="w-32 h-32 mx-auto" src={sprites?.other['official-artwork']?.front_default} alt={`${pokemonName} artwork`} />
-     </div>
+    <article className="text-yellow-500 font-mono w-full max-w-md mx-auto p-4 rounded-2xl aspect-auto relative mb-4 bg-gray-700">
+      <div className={`w-full max-w-md mx-auto p-4 rounded-2xl aspect-auto relative mb-4 ${types[0]?.type.name ? getBackgroundClass(types[0].type.name) : 'bg-gray-500'}`}>
+        <img className="w-32 h-32 mx-auto" src={sprites?.other['official-artwork']?.front_default} alt={`${pokemonName} artwork`} />
+      </div>
       <h1 className="text-2xl font-bold text-center">#{id}</h1>
       <h2 className="text-2xl capitalize text-center">{pokemonName}</h2>
       <div className="mt-4">
         <h3 className="text-xl font-semibold">Abilities:</h3>
-        <ul className=" pl-5 list-none">
-          {
-          abilities.map((ability, index) => (
+        <ul className="pl-5 list-none">
+          {abilities.map((ability, index) => (
             <li key={index} className="capitalize">{ability.ability.name}</li>
-          )
-        )
-          }
+          ))}
         </ul>
       </div>
       <div className="mt-4">
         <h3 className="text-xl font-semibold">Types:</h3>
-        <ul className=" pl-5 list-none">
-          {
-          types.map((type, index) => (
+        <ul className="pl-5 list-none">
+          {types.map((type, index) => (
             <li key={index} className="capitalize">{type.type.name}</li>
-          ))
-          }
+          ))}
         </ul>
       </div>
       <div className="mt-4">
         <h3 className="text-xl font-semibold">Physical Characteristics:</h3>
-        <ul className=" pl-5 list-none">
+        <ul className="pl-5 list-none">
           <li>Height: {height}</li>
           <li>Weight: {weight}</li>
         </ul>
@@ -82,11 +77,11 @@ const Pokeinfo = () => {
           ))}
         </ul>
         <h3 className="text-md font-semibold">Moves:</h3>
-        <div>
-    <ul>
-    
-    </ul>
-        </div>
+        <ul className="mt-2 pl-5 list-none flex flex-row flex-wrap">
+          {moves.map((move, index) => (
+            <li key={index} className="capitalize m-1 p-1 text-justify ">{move.move.name}</li>
+          ))}
+        </ul>
       </section>
     </article>
   );
