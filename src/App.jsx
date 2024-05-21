@@ -12,7 +12,7 @@ function App() {
   
 
   return (
- <div>
+ <div className='w-auto h-auto m-auto p-5'>
  
 
  <Routes>
