@@ -43,7 +43,7 @@ const Pokeinfo = () => {
       <div className="mt-4">
         <h3 className="text-xl font-semibold">Abilities:</h3>
         <ul className="pl-5 list-none">
-          {abilities.map((ability, index) => (
+          {abilities?.map((ability, index) => (
             <li key={index} className="capitalize">{ability.ability.name}</li>
           ))}
         </ul>
@@ -51,7 +51,7 @@ const Pokeinfo = () => {
       <div className="mt-4">
         <h3 className="text-xl font-semibold">Types:</h3>
         <ul className="pl-5 list-none">
-          {types.map((type, index) => (
+          {types?.map((type, index) => (
             <li key={index} className="capitalize">{type.type.name}</li>
           ))}
         </ul>
@@ -66,7 +66,7 @@ const Pokeinfo = () => {
       <section className="mt-4">
         <h3 className="text-md font-semibold">Stats:</h3>
         <ul className="mt-2">
-          {stats.map((stat, index) => (
+          {stats?.map((stat, index) => (
             <li key={index} className="flex items-center mb-2">
               <span className="w-32 capitalize">{stat.stat.name}:</span>
               <div className="w-full h-4 bg-gray-300 rounded-full overflow-hidden ml-2">
@@ -78,7 +78,7 @@ const Pokeinfo = () => {
         </ul>
         <h3 className="text-md font-semibold">Moves:</h3>
         <ul className="mt-2 pl-5 list-none flex flex-row flex-wrap">
-          {moves.map((move, index) => (
+          {moves?.map((move, index) => (
             <li key={index} className="capitalize m-1 p-1 text-justify ">{move.move.name}</li>
           ))}
         </ul>
